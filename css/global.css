@@ -1,0 +1,467 @@
+/* ==========================================================================
+   PORTAFOLIO PERSONAL - HOJA DE ESTILOS GLOBAL (css/global.css)
+   Contiene: Variables (:root) en paleta rosa suave minimalista clara,
+   reset, tipografía, utilidades, layout, header, navbar móvil responsiva,
+   botones, badges, footer y ajustes de fuentes para móvil.
+   ========================================================================== */
+
+/* 1. Variables CSS (:root) - Paleta Minimalista Rosa Claro */
+:root {
+  /* Fondos claros y minimalistas */
+  --color-bg: #fff9fa;             /* Fondo general cálido con toque rosita pastel */
+  --color-surface: #ffffff;        /* Fondo blanco puro para tarjetas y superficies */
+  --color-surface-hover: #fff0f3;  /* Hover suave para interactivos */
+  --color-surface-card: #ffffff;   /* Fondo de contenedor interior */
+  
+  /* Tonos rosados elegantes (sin neón) */
+  --color-primary: #d95376;        /* Rosa frambuesa elegante / blush intenso */
+  --color-primary-hover: #c44062;  /* Tono más oscuro al pasar el cursor */
+  --color-secondary: #e88299;      /* Rosa suave intermedio */
+  --color-secondary-hover: #d46f87;
+  --color-accent: #d95376;         /* Acento principal */
+  --color-accent-soft: #fdeef1;    /* Tinte pastel suave para fondos de badges/iconos */
+  
+  /* Textos nítidos y de alto contraste (carbón cálido) */
+  --color-text: #2d2226;          /* Texto principal oscuro elegante */
+  --color-text-muted: #6e5e64;    /* Texto secundario atenuado */
+  --color-text-subtle: #98858d;   /* Texto sutil / pie de página */
+  
+  /* Bordes suaves y delimitadores */
+  --color-border: #f0dfe3;        /* Borde sutil rosado claro */
+  --color-border-light: #faedf0;  /* Borde interior muy suave */
+  
+  /* Estados funcionales en armonía */
+  --color-success: #2e8b57;       /* Verde suave para confirmación */
+  --color-error: #c93b54;         /* Rojo carmín suave para errores */
+
+  /* Tipografía */
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+  /* Bordes y esquinas */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Sombras minimalistas suaves y limpias */
+  --shadow-sm: 0 2px 6px rgba(217, 83, 118, 0.05);
+  --shadow-md: 0 6px 20px rgba(217, 83, 118, 0.08);
+  --shadow-lg: 0 12px 30px rgba(217, 83, 118, 0.12);
+  --shadow-glow: 0 0 20px rgba(217, 83, 118, 0.22);
+
+  /* Transiciones y medidas */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --max-width: 1140px;
+  --header-height: 72px;
+}
+
+/* 2. Reset Universal */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+/* Para que el footer se mantenga al final en páginas con poco contenido */
+main {
+  flex: 1;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 3. Clases Utilitarias */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.5rem;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background-color: var(--color-accent-soft);
+  border: 1px solid rgba(217, 83, 118, 0.2);
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin-bottom: 0.85rem;
+}
+
+.section-description {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(217, 83, 118, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: #ffffff;
+  border-color: var(--color-border);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Badges / Etiquetas */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-soft);
+  color: var(--color-primary);
+  border: 1px solid rgba(217, 83, 118, 0.22);
+}
+
+/* 4. Encabezado del Sitio (Header) y Barra de Navegación (Navbar) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 10px rgba(217, 83, 118, 0.04);
+}
+
+.navbar {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.logo span {
+  color: var(--color-primary);
+}
+
+/* Botón menú móvil */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 38px;
+  height: 38px;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.menu-toggle:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-primary);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+}
+
+/* Lista de navegación */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  padding: 0.4rem 0.2rem;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* Enlace activo */
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+/* 5. Pie de Página (Footer) */
+.site-footer {
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-border);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.footer-links a {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.footer-copy {
+  color: var(--color-text-subtle);
+  font-size: 0.85rem;
+}
+
+/* 6. Media Queries para Header, Menú Móvil y Ajuste Reducido de Letras en Móvil */
+@media (max-width: 768px) {
+  /* Escala global reducida para móvil */
+  html {
+    font-size: 15px;
+  }
+
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-description {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1.5rem;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-lg);
+
+    /* Oculto por defecto en móvil */
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+  }
+
+  .nav-menu.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.92rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: var(--color-surface-hover);
+    color: var(--color-primary);
+  }
+
+  .nav-link.active::after {
+    display: none;
+  }
+
+  /* Botones más compactos en móvil */
+  .btn {
+    padding: 0.62rem 1.15rem;
+    font-size: 0.86rem;
+  }
+
+  /* Footer en móvil */
+  .footer-links a {
+    font-size: 0.82rem;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14.5px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .section-description {
+    font-size: 0.84rem;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+  }
+}

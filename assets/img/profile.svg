@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0f3" />
+      <stop offset="50%" stop-color="#fde2e7" />
+      <stop offset="100%" stop-color="#fad2dc" />
+    </linearGradient>
+    <linearGradient id="roseAccent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e88299" />
+      <stop offset="100%" stop-color="#d95376" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#d95376" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Outer background circle -->
+  <circle cx="200" cy="200" r="185" fill="url(#bgPink)" />
+  <circle cx="200" cy="200" r="165" fill="#ffffff" stroke="#f0dfe3" stroke-width="4" filter="url(#softShadow)" />
+
+  <!-- Avatar Silhouette in Soft Rose -->
+  <!-- Head -->
+  <circle cx="200" cy="155" r="55" fill="url(#roseAccent)" />
+  
+  <!-- Hair styling -->
+  <path d="M 155 145 Q 200 115 245 145 Q 200 130 155 145 Z" fill="#2d2226" opacity="0.3"/>
+  <rect x="172" y="145" width="24" height="15" rx="4" fill="#ffffff" opacity="0.9" />
+  <rect x="204" y="145" width="24" height="15" rx="4" fill="#ffffff" opacity="0.9" />
+  <line x1="196" y1="152" x2="204" y2="152" stroke="#d95376" stroke-width="3" />
+
+  <!-- Body / Shoulders -->
+  <path d="M 115 310 C 115 240, 150 220, 200 220 C 250 220, 285 240, 285 310 Z" fill="url(#roseAccent)" />
+  <polygon points="185,220 215,220 200,250" fill="#ffffff" />
+
+  <!-- Laptop / Desk Accent -->
+  <rect x="130" y="295" width="140" height="10" rx="4" fill="#f7b5c4" />
+  <polygon points="120,315 280,315 270,305 130,305" fill="#f0dfe3" />
+</svg>

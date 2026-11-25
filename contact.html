@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacto profesional con María José Zúñiga Alvarez - Ingeniera en Software en Guayaquil, Ecuador">
+  <title>Contacto | María José Zúñiga Alvarez</title>
+  
+  <!-- Hojas de estilo oficiales (global.css primero, luego pages.css) -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Encabezado y Barra de Navegación Oficial -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <!-- Logotipo -->
+      <a href="index.html" class="logo">
+        MJ<span>.Zuñiga</span>
+      </a>
+
+      <!-- Botón de Menú Móvil (Hamburguesa) -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Lista de Enlaces de Navegación -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="about.html" class="nav-link">Sobre mí</a></li>
+        <li><a href="skills.html" class="nav-link">Habilidades</a></li>
+        <li><a href="projects.html" class="nav-link">Proyectos</a></li>
+        <li><a href="contact.html" class="nav-link">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido Principal: Contacto -->
+  <main class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-tag">Conectemos</span>
+        <h1 class="section-title">Canales de Contacto</h1>
+        <p class="section-description">
+          ¿Tienes una oportunidad laboral, requerimiento de consultoría en procesos o deseas coordinar una entrevista? Comunícate por cualquiera de mis canales oficiales.
+        </p>
+      </header>
+
+      <!-- Cuadrícula de Contacto (2 Columnas) -->
+      <div class="contact-grid">
+        <!-- Columna Izquierda: Canales Directos -->
+        <div class="contact-channels">
+          <!-- Canal 1: WhatsApp -->
+          <article class="channel-card">
+            <div class="channel-header">
+              <div class="channel-icon">💬</div>
+              <div>
+                <h2 class="channel-title">WhatsApp Directo</h2>
+                <p class="channel-info">+593 0963311940 • Guayaquil, Ecuador</p>
+              </div>
+            </div>
+            <div class="channel-actions">
+              <a href="https://wa.me/593963311940?text=Hola%20Mar%C3%ADa%20Jos%C3%A9,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-outline">
+                Chatear en WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Canal 2: LinkedIn -->
+          <article class="channel-card">
+            <div class="channel-header">
+              <div class="channel-icon">💼</div>
+              <div>
+                <h2 class="channel-title">LinkedIn Profesional</h2>
+                <p class="channel-info">Maria Jose Zuñiga</p>
+              </div>
+            </div>
+            <div class="channel-actions">
+              <a href="https://www.linkedin.com/in/maria-jose-zu%C3%B1iga" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-outline">
+                Ver Perfil de LinkedIn
+              </a>
+            </div>
+          </article>
+
+          <!-- Canal 3: Correo Electrónico -->
+          <article class="channel-card">
+            <div class="channel-header">
+              <div class="channel-icon">✉️</div>
+              <div>
+                <h2 class="channel-title">Correo Electrónico</h2>
+                <p class="channel-info">Mariajosezuniga10@outlook.com</p>
+              </div>
+            </div>
+            <div class="channel-actions">
+              <a href="mailto:Mariajosezuniga10@outlook.com" class="btn btn-primary">
+                Escribir Correo
+              </a>
+              <button id="copy-email-btn" type="button" class="btn btn-outline">
+                Copiar correo
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Columna Derecha: Formulario de Contacto -->
+        <div class="contact-form-card">
+          <h2 class="form-title">Envíame un Mensaje</h2>
+          <p class="form-subtitle">Completa el formulario y selecciona tu método de envío favorito.</p>
+
+          <form id="contact-form" novalidate>
+            <!-- Contenedor para Alertas Dinámicas de JavaScript -->
+            <div id="form-feedback" class="form-feedback"></div>
+
+            <!-- Campo: Nombre -->
+            <div class="form-group">
+              <label for="name" class="form-label">Nombre Completo *</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Ej. Carlos Mendoza" required>
+            </div>
+
+            <!-- Campo: Correo -->
+            <div class="form-group">
+              <label for="email" class="form-label">Correo Electrónico *</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="ejemplo@empresa.com" required>
+            </div>
+
+            <!-- Campo: Asunto -->
+            <div class="form-group">
+              <label for="subject" class="form-label">Asunto *</label>
+              <input type="text" id="subject" name="subject" class="form-input" placeholder="Ej. Oportunidad laboral / Proyecto Torre de Calidad" required>
+            </div>
+
+            <!-- Campo: Mensaje -->
+            <div class="form-group">
+              <label for="message" class="form-label">Mensaje *</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Escribe tu mensaje o propuesta laboral..." required></textarea>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                ✉️ Enviar por Correo
+              </button>
+              <button type="button" id="send-whatsapp-btn" class="btn btn-outline">
+                💬 Enviar por WhatsApp
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de Página Oficial -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/maria-jose-zu%C3%B1iga" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="mailto:Mariajosezuniga10@outlook.com">Correo</a></li>
+        <li><a href="https://wa.me/593963311940" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+      <p class="footer-copy">
+        &copy; <span id="current-year"></span> María José Zúñiga Alvarez • Guayaquil, Ecuador. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts: Global y específico de Contacto -->
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

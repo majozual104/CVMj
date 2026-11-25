@@ -1,0 +1,939 @@
+/* ==========================================================================
+   PORTAFOLIO PERSONAL - ESTILOS ESPECÍFICOS DE VISTAS (css/pages.css)
+   Contiene: Estilos del contenido (<main>) para index, about, skills,
+   projects y contact en paleta rosa suave minimalista clara,
+   animación de rebote para la foto de perfil y reducción de tipografía en móvil.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ANIMACIÓN DE REBOTE (BOUNCE) PARA LA FOTO DE PERFIL
+   -------------------------------------------------------------------------- */
+@keyframes bounceAvatar {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 8px 24px rgba(217, 83, 118, 0.16), 0 2px 6px rgba(217, 83, 118, 0.08);
+  }
+  50% {
+    transform: translateY(-15px);
+    box-shadow: 0 22px 35px rgba(217, 83, 118, 0.22), 0 6px 14px rgba(217, 83, 118, 0.12);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   1. PÁGINA: INICIO (index.html)
+   -------------------------------------------------------------------------- */
+
+/* Hero Section */
+.hero {
+  padding-top: 4.5rem;
+  padding-bottom: 5rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.hero-greeting {
+  display: inline-block;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-size: 2.85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+}
+
+/* Degradado elegante rosa suave / frambuesa sin neón */
+.hero-title .highlight {
+  background: linear-gradient(135deg, #d95376 0%, #e88299 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.08rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Avatar de perfil con animación de rebote y marco circular rosado */
+.hero-avatar {
+  width: 280px;
+  height: 280px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  object-position: center 15%;
+  border: 4px solid #fae1e6;
+  background: radial-gradient(circle, #fdeef1 0%, #ffffff 85%);
+  box-shadow: 0 8px 24px rgba(217, 83, 118, 0.16);
+  animation: bounceAvatar 3s ease-in-out infinite;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  cursor: pointer;
+}
+
+.hero-avatar:hover {
+  animation-play-state: paused;
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--color-primary);
+  box-shadow: 0 16px 32px rgba(217, 83, 118, 0.26);
+}
+
+/* Sección Resumen / Fortalezas (Highlights Grid) */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.highlight-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.highlight-card:hover {
+  border-color: #f7ced7;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-soft);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(217, 83, 118, 0.18);
+}
+
+.highlight-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.highlight-text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   2. PÁGINA: SOBRE MÍ (about.html)
+   -------------------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.about-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-bio-text {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.35rem;
+}
+
+.about-bio-actions {
+  margin-top: 2rem;
+}
+
+/* Línea de Tiempo (Timeline) */
+.timeline-list {
+  list-style: none;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -1.5rem;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(217, 83, 118, 0.2);
+}
+
+.timeline-period {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-role {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-place {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Sección de Referencias Laborales en about.html */
+.references-section {
+  margin-top: 3.5rem;
+}
+
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.reference-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.reference-card:hover {
+  border-color: #f7ced7;
+  transform: translateY(-2px);
+}
+
+.reference-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.reference-contact {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. PÁGINA: HABILIDADES (skills.html)
+   -------------------------------------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.category-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.skill-item {
+  width: 100%;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.skill-percentage {
+  color: var(--color-primary);
+  font-family: var(--font-code);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-border-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, #e88299, #d95376);
+  transition: width 1s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   4. PÁGINA: PROYECTOS (projects.html)
+   -------------------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: #f7ced7;
+  box-shadow: var(--shadow-lg);
+}
+
+.project-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #fff2f5;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.03);
+}
+
+.project-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-context {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.project-description {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-links .btn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. PÁGINA: CONTACTO (contact.html)
+   -------------------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Columna Izquierda: Tarjetas de Canales Directos */
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.channel-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.channel-card:hover {
+  border-color: #f7ced7;
+  box-shadow: var(--shadow-md);
+}
+
+.channel-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.channel-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-soft);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border: 1px solid rgba(217, 83, 118, 0.16);
+}
+
+.channel-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.channel-info {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.channel-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.channel-actions .btn {
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* Columna Derecha: Tarjeta del Formulario */
+.contact-form-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(217, 83, 118, 0.15);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Alertas de retroalimentación */
+.form-feedback {
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  display: none;
+}
+
+.form-feedback.error {
+  display: block;
+  background-color: #fff0f3;
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
+}
+
+.form-feedback.success {
+  display: block;
+  background-color: #f0fdf4;
+  border: 1px solid var(--color-success);
+  color: var(--color-success);
+}
+
+/* Botones de acción del formulario */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-actions .btn {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE DESIGN - REDUCCIÓN EXHAUSTIVA DE FUENTES EN MÓVIL
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.25rem;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero en Móvil: Tipografía compacta y armoniosa */
+  .hero {
+    padding-top: 2.75rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-greeting {
+    font-size: 0.84rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.22;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+  }
+
+  /* Avatar más compacto para pantallas reducidas */
+  .hero-avatar {
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Fortalezas (Highlights) en Móvil */
+  .highlights-grid {
+    gap: 1.25rem;
+  }
+
+  .highlight-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .highlight-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .highlight-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .highlight-text {
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  /* Sobre mí (About) en Móvil */
+  .about-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .about-card-title {
+    font-size: 1.15rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .about-bio-text {
+    font-size: 0.86rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-list {
+    padding-left: 1.25rem;
+  }
+
+  .timeline-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-item::before {
+    left: -1.25rem;
+    width: 10px;
+    height: 10px;
+    top: 5px;
+  }
+
+  .timeline-period {
+    font-size: 0.72rem;
+  }
+
+  .timeline-role {
+    font-size: 0.96rem;
+    line-height: 1.3;
+  }
+
+  .timeline-place {
+    font-size: 0.82rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .timeline-description {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .reference-card {
+    padding: 1.15rem;
+  }
+
+  .reference-name {
+    font-size: 0.95rem;
+  }
+
+  .reference-contact {
+    font-size: 0.82rem;
+  }
+
+  /* Habilidades (Skills) en Móvil */
+  .skills-grid {
+    gap: 1.25rem;
+  }
+
+  .skill-category {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .category-title {
+    font-size: 1.12rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-items {
+    gap: 1.15rem;
+  }
+
+  .skill-info {
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .skill-percentage {
+    font-size: 0.8rem;
+  }
+
+  /* Proyectos (Projects) en Móvil */
+  .projects-grid {
+    gap: 1.25rem;
+  }
+
+  .project-img-wrapper {
+    height: 165px;
+  }
+
+  .project-content {
+    padding: 1.25rem;
+  }
+
+  .project-context {
+    font-size: 0.72rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-description {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+
+  .project-tech {
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-tech .badge {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .project-links .btn {
+    padding: 0.52rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  /* Contacto (Contact) en Móvil */
+  .contact-channels {
+    gap: 1.15rem;
+  }
+
+  .channel-card {
+    padding: 1.35rem 1.15rem;
+    gap: 0.85rem;
+  }
+
+  .channel-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
+  }
+
+  .channel-title {
+    font-size: 0.98rem;
+  }
+
+  .channel-info {
+    font-size: 0.82rem;
+  }
+
+  .channel-actions .btn {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .contact-form-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .form-title {
+    font-size: 1.18rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.84rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-label {
+    font-size: 0.82rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-size: 0.86rem;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .form-feedback {
+    font-size: 0.82rem;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    min-width: 0;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.55rem;
+  }
+
+  .hero-avatar {
+    width: 190px;
+    height: 190px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
