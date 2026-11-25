@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   setActiveNavLink();
   setCurrentYear();
+  initSkillsFilter();
 });
 
 /**
@@ -93,4 +94,43 @@ function setCurrentYear() {
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
+}
+
+/**
+ * 4. Filtro Dinámico de Habilidades (skills.html)
+ * Permite filtrar las categorías de habilidades al hacer clic en las píldoras de filtro.
+ */
+function initSkillsFilter() {
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const categories = document.querySelectorAll(".skill-category");
+
+  if (!filterBtns.length || !categories.length) return;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Remover clase activa de todos los botones y asignar al pulsado
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filterValue = btn.getAttribute("data-filter");
+
+      categories.forEach((category) => {
+        const catGroup = category.getAttribute("data-category");
+
+        if (filterValue === "all" || catGroup === filterValue) {
+          category.style.display = "flex";
+          category.style.opacity = "0";
+          category.style.transform = "translateY(10px)";
+          
+          setTimeout(() => {
+            category.style.transition = "opacity 0.35s ease, transform 0.35s ease";
+            category.style.opacity = "1";
+            category.style.transform = "translateY(0)";
+          }, 20);
+        } else {
+          category.style.display = "none";
+        }
+      });
+    });
+  });
 }
